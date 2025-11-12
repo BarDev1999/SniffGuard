@@ -66,7 +66,7 @@ sudo nmap -sN -p 1-200 127.0.0.1
 
 # 4. XMAS Scan (Nmap Stealth Scan with FIN, PSH, URG flags)
 sudo nmap -sX -p 1-200 127.0.0.1
-
+```
 ---
 
 📜 License
