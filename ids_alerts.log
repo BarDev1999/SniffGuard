@@ -1,0 +1,1 @@
+2025-08-26 12:57:38,633 - WARNING - PORT SCAN DETECTED on interface enp0s8: 10.100.102.9 -> 10.100.102.6 (16 unique ports in 10s; threshold=15). Evidence saved to evidence/scan_2025-08-26_12-57-38_from_10.100.102.9.pcap
