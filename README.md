@@ -5,13 +5,13 @@ This is a project I built to deepen my understanding of data communications and 
 
 ---
 ## ✨ Key Features
-* **Live Dashboard:** Real-time traffic display using the Rich library.
-* 🛡️ **SYN Scan Detection:** A robust, stateful engine to detect SYN-based port scans.
+* Modular Architecture:Refactored into dedicated, decoupled classes (`Detector`, `UI`, `Handler`) for clean, scalable development.
+* Live Dashboard:Real-time traffic display using the Rich library.
+* 🛡️ **Multi-Protocol Scan Detection:** A robust, stateful engine now detects **SYN, FIN, NULL, and XMAS Scans**.
 * **PCAP Evidence:** Saves all packets from a detected scan to a `.pcap` file for analysis in tools like Wireshark.
 * **Dynamic & Robust:** Automatically detects available interfaces, uses efficient BPF filters, and handles errors gracefully.
 * **Professional Logging:** Alerts are saved to a rotating log file to prevent disk space issues.
 * **Fully Configurable:** All parameters (interfaces, thresholds, etc.) can be controlled via CLI arguments.
-
 ---
 
 ### 🖼️ Showcase
@@ -45,24 +45,28 @@ https://youtu.be/RRBL-ykiJFo
 
 3.  **Run the IDS:**
     ```bash
-    # On Linux/macOS
-    sudo python3 sniffer_proj.py
+    # On Linux/macOS, run the new main entry point
+    sudo python3 main.py
     ```
 
 ---
 
 ## ⚙️ Lab Demo Commands
-You can test the IDS safely in your lab environment with these commands:
+You can test the IDS safely in your lab environment with these commands. Note that the BPF filter is now set to capture all TCP traffic to enable stealth scan detection.
 
 ```bash
-# Nmap Scan (targets ports 1-200 on localhost)
+# 1. SYN Scan (Standard Nmap Stealth Scan)
 sudo nmap -sS -p 1-200 127.0.0.1
 
-# Hping3 Scan (sends 120 SYN packets to incrementing ports starting from 80)
-sudo hping3 -S --flood --rand-source -p ++80 -c 120 127.0.0.1
-```
+# 2. FIN Scan (Nmap Stealth Scan using FIN flag)
+sudo nmap -sF -p 1-200 127.0.0.1
 
----
+# 3. NULL Scan (Nmap Stealth Scan with no flags set)
+sudo nmap -sN -p 1-200 127.0.0.1
 
-## 📜 License
+# 4. XMAS Scan (Nmap Stealth Scan with FIN, PSH, URG flags)
+sudo nmap -sX -p 1-200 127.0.0.1
+
+
+📜 License
 This project is licensed under the MIT License.
