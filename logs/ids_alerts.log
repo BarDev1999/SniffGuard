@@ -1,2 +1,0 @@
-2025-10-30 14:17:49,513 - WARNING - PORT SCAN DETECTED on interface lo: 127.0.0.1 -> 127.0.0.1 (16 unique ports in 10s; threshold=15). Evidence saved to evidence/scan_2025-10-30_14-17-49_from_127.0.0.1.pcap
-2025-10-30 14:20:45,241 - WARNING - PORT SCAN DETECTED on interface lo: 127.0.0.1 -> 127.0.0.1 (16 unique ports in 10s; threshold=15). Evidence saved to evidence/scan_2025-10-30_14-20-45_from_127.0.0.1.pcap
