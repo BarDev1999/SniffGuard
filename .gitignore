@@ -13,6 +13,7 @@ ENV/
 ids_alerts.log
 evidence/
 out/
+logs/   # <-- חשוב: הוספת כל תיקיית הלוגים
 
 # OS/Editor junk
 .DS_Store
